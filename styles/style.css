@@ -1,4 +1,4 @@
-*,
+*,  /* ссылка на Perfect Pixel проверку в README.md */
 *::before,
 *::after {
   box-sizing: border-box;
@@ -12,7 +12,6 @@ html {
   display: flex;
   height: 100vh;
   margin: auto;
-  overflow: hidden;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -65,20 +64,21 @@ ol {
 }
 
 .content {
-  display: grid;
-  grid-template-areas: 
-  "result content__details";
-  align-items: end;
+  display: flex;
+  min-width: 1140px;
+  min-height: 534px;
   gap: 30px;
   margin: auto;
+  align-items: end;
+  padding-bottom: 10px;
 }
 
 .result {
-  position: relative;
+  position: relative;  /* Для preloader`a и error`a */
   display: flex;
   flex-direction: column;
-  grid-area: result;
   gap: 16px;
+  margin-left: 15px;
 }
 
 .result__video-container {
@@ -97,7 +97,7 @@ ol {
 .search-form {
   display: flex;
   justify-content: space-between;
-  margin-left: -1px;
+  max-width: 711px;
   font-family: Fira Sans Condensed, sans-serif;
   font-size: 18px;
 }
@@ -183,6 +183,7 @@ ol {
 }
 
 .search-form__checkbox-list .search-form__label {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,18 +236,19 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  grid-area: content__details;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 26px;
   width: 100%;
+  min-height: 534px;
   height: 100%;
 }
 
 .title {
   display: block;
-  margin-top: -22px;  /* Для позиционирования по макету, без смещения всего остального контента */
-  margin-bottom: 22px;
-  margin-left: -2px;
-  padding-left: 1px;
   font-family: Oswald, sans-serif;
+  margin-right: 140px;
+  transform: translateY(5px); /* Убераем отступ текста при нулевых(!) margin`ах внутри блока */
   font-size: 75px;
   line-height: 0.94;
   letter-spacing: 0;
@@ -258,7 +260,7 @@ ol {
 }
 
 .content__list-container {
-  position: relative;
+  position: relative;  /* Для preloader`a */
   max-width: 399px;
   max-height: 298px;
   overflow: auto;
@@ -269,6 +271,7 @@ ol {
   flex-direction: column;
   gap: 30px;
   margin-right: 3px;
+  margin-left: 1px;
 }
 
 .content__list-item {
@@ -286,7 +289,6 @@ ol {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  overflow: hidden;
 }
 
 .content__card-link:active {
@@ -315,7 +317,7 @@ ol {
 
 .content__video-card-description-container {
   max-width: 196px;
-  margin-top: -3px;
+  transform: translateY(-4px); /* Убераем отступ текста от границ внутри контейнера при нулевых(!) margin`ах */
 }
 
 .content__video-card-title {
