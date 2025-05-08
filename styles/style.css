@@ -10,7 +10,7 @@ html {
 
 .page {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -66,11 +66,9 @@ ol {
 .content {
   display: flex;
   min-width: 1140px;
-  min-height: 534px;
   gap: 30px;
   margin: auto;
-  align-items: end;
-  padding-bottom: 10px;
+  align-items: flex-end;
 }
 
 .result {
@@ -78,7 +76,6 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-left: 15px;
 }
 
 .result__video-container {
@@ -236,23 +233,20 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-grow: 1;
   gap: 26px;
   width: 100%;
-  min-height: 534px;
-  height: 100%;
 }
 
-.title {
+.title {   /* Смещение внутри блока - особенность отрисовки. Без margin: -;, position или transform нельзя спозиционировать. */
   display: block;
   font-family: Oswald, sans-serif;
   margin-right: 140px;
-  transform: translateY(5px); /* Убераем отступ текста при нулевых(!) margin`ах внутри блока */
   font-size: 75px;
   line-height: 0.94;
   letter-spacing: 0;
   text-transform: uppercase;
+  margin-top: 0;
 }
 
 .content__accent {
@@ -262,8 +256,11 @@ ol {
 .content__list-container {
   position: relative;  /* Для preloader`a */
   max-width: 399px;
-  max-height: 298px;
-  overflow: auto;
+  min-height: 298px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  overflow-y: auto;
 }
 
 .content__list {
@@ -313,11 +310,7 @@ ol {
   flex: 1;
   min-width: 0;
   color: #FFF;
-}
-
-.content__video-card-description-container {
   max-width: 196px;
-  transform: translateY(-4px); /* Убераем отступ текста от границ внутри контейнера при нулевых(!) margin`ах */
 }
 
 .content__video-card-title {
@@ -325,9 +318,12 @@ ol {
   font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 30px;
+  line-height: 1;
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-top: 2px;
+  margin-bottom: 4.5px;
 }
 
 .content__video-card-description {
